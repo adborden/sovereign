@@ -7,6 +7,7 @@ verify_ssl = true
 requests = "*"
 nose = "*"
 ansible-lint = "~=4.1.0"
+molecule = {extras = ["docker"],version = "*"}
 
 [packages]
 ansible = "~=2.6.18"
