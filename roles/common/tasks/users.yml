@@ -3,7 +3,7 @@
 
 - name: Give main user account sudo power
   template: >-
-    src=roles/common/templates/sudoers.j2
+    src=sudoers.j2
     dest=/etc/sudoers.d/sudoers
     owner=root
     group=root
