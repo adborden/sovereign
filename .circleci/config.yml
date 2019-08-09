@@ -1,17 +1,28 @@
 ---
 version: 2
 jobs:
-  build:
+  lint:
     docker:
       - image: circleci/python:2.7
     steps:
       - checkout
       - run: pipenv sync --dev
-      - run: make test
+      - run: make lint
+
+  test:
+    docker:
+      - image: circleci/python:2.7
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run: pipenv sync --dev
+      - run: |-
+          TEST_TARGETS=$(make ci-glob | circleci tests split --split-by=timings)
+          make ${TEST_TARGETS}
 
 
 workflows:
   version: 2
   commit:
     jobs:
-      - build
+      - test
