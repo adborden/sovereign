@@ -28,7 +28,9 @@
 - name: If /encrypted isn't empty, mount it (but only if /decrypted/test doesn't exist)
   shell: |-
     set -o pipefail
-    command="printf '{{ encfs_password }}' | encfs /encrypted /decrypted --public --stdinpass" creates="/decrypted/test"
+    printf '{{ encfs_password }}' | encfs /encrypted /decrypted --public --stdinpass
+  args:
+    creates: /decrypted/test
   when: encfs_check.rc == 0
   tags:
     - molecule-notest  # no fuse in docker
