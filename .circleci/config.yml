@@ -1,0 +1,18 @@
+---
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/python:3.6
+    steps:
+      - checkout
+      - run: pipenv sync --dev
+      - run: make lint
+      - run: make test
+
+
+workflows:
+  version: 2
+  commit:
+    jobs:
+      - build
