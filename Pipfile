@@ -1,0 +1,16 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+requests = "*"
+nose = "*"
+ansible-lint = ">=2.3.9,<3"
+
+[packages]
+ansible = "==2.2.2.0"
+passlib = ">=1.7.0,<2"
+
+[requires]
+python_version = "2.7"
