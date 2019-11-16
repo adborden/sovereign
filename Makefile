@@ -17,7 +17,7 @@ $(ROLE_TEST_TARGETS):
 	# Get the role dir from the target
 	cd $(subst test-,,$@) && pipenv run molecule test --all
 
-test: $($ROLE_TEST_TARGETS)
+test: $(ROLE_TEST_TARGETS)
 
 
 .PHONY: ci-glob lint setup test $(ROLE_TEST_TARGETS)
