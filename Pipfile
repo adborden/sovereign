@@ -6,10 +6,10 @@ verify_ssl = true
 [dev-packages]
 requests = "*"
 nose = "*"
-ansible-lint = ">=2.3.9,<3"
+ansible-lint = "~=4.1.0"
 
 [packages]
-ansible = "==2.2.2.0"
+ansible = "~=2.6.18"
 passlib = ">=1.7.0,<2"
 
 [requires]
