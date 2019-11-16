@@ -9,3 +9,11 @@
           - iproute2
           - locales
           - openssh-server
+
+    - name: ensure log files watched by fail2ban exist
+      file: state=touch path={{ item }} owner=root group=root mode=0644
+      when: ansible_distribution_release in ['xenial']
+      loop:
+        - /var/log/auth.log
+        - /var/log/mail.log
+        - /var/log/mail.warn
